@@ -13,9 +13,8 @@
       abstract: true,
       views: {
         root: {
-          template:
-            '<div ui-view="nav"></div>' +
-            '<div ui-view></div>'
+          template: '<div ui-view="nav"></div>' +
+          '<div ui-view></div>'
         },
         'nav@root': {
           templateUrl: 'app/nav/nav.template.html'
@@ -58,12 +57,14 @@
     });
 
     $stateProvider.state('root.randomQuote', {
-      resolve: ['$state', 'quotesService', function($state, quotesService) {
-        return quotesService.getRandomQuote()
-          .then(function (randomQuote) {
-            return $state.go('root.quoteDetails', {id: randomQuote.id});
-          });
-      }]
+      resolve: {
+        dummy: ['$state', 'quotesService', function ($state, quotesService) {
+          return quotesService.getRandomQuote()
+            .then(function (randomQuote) {
+              return $state.go('root.quoteDetails', {id: randomQuote.id});
+            });
+        }]
+      }
     });
   }
 })();
