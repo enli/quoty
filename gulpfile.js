@@ -9,7 +9,14 @@ var runSequence = require('run-sequence');
 var angularFilesort = require('gulp-angular-filesort');
 var del = require('del');
 
+var mainBowerFiles = require('gulp-main-bower-files');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+var gulpFilter = require('gulp-filter');
+var csso = require('gulp-csso');
+
 var temp = '.tmp/';
+var dist = './dist/';
 
 gulp.task('clean', function () {
   del.sync(temp);
@@ -79,4 +86,72 @@ gulp.task('inject', function () {
   return target
     .pipe(inject(jsFiles.pipe(angularFilesort())))
     .pipe(gulp.dest(temp));
+});
+
+gulp.task('package', function () {
+  runSequence([
+    'package:bower-js',
+    'package:bower-css',
+    'package:app-js',
+    'package:app-css',
+    'package:app-templates',
+    'package:app-json',
+    'package:app-index'
+  ]);
+});
+
+gulp.task('package:bower-js', function () {
+  var filterJS = gulpFilter('**/*.js', {restore: true});
+
+  gulp.src('./bower.json')
+    .pipe(mainBowerFiles())
+    .pipe(filterJS)
+    .pipe(concat('vendor.js'))
+    .pipe(uglify())
+    .pipe(filterJS.restore)
+    .pipe(gulp.dest(dist + 'js/'));
+});
+
+gulp.task('package:bower-css', function () {
+  gulp.src('./bower_components/bootstrap/dist/css/*min.css')
+    .pipe(gulp.dest(dist + 'css/'));
+});
+
+gulp.task('package:app-js', function() {
+  gulp.src(['src/js/**/*.js'])
+    .pipe(angularFilesort())
+    .pipe(concat('app.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(dist + 'js/'));
+});
+
+gulp.task('package:app-css', function() {
+  return gulp.src(['src/**/*.scss'])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(concat('app.css'))
+    .pipe(csso())
+    .pipe(gulp.dest(dist + 'css/'));
+});
+
+gulp.task('package:app-templates', function () {
+  var templateCache = require('gulp-angular-templatecache');
+
+  return gulp.src('src/js/**/*.html')
+    .pipe(templateCache({module: 'quoty'}))
+    .pipe(concat('templates.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(dist + 'js/'));
+});
+
+gulp.task('package:app-json', function () {
+  return gulp.src('./src/js/**/*.json')
+    .pipe(gulp.dest(dist));
+});
+
+gulp.task('package:app-index', function () {
+  var rename = require('gulp-rename');
+
+  return gulp.src('./src/index_release.html')
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest(dist));
 });
