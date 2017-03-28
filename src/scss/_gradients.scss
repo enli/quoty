@@ -1,0 +1,14 @@
+@import "mixins";
+
+.gradient0 {
+  @include generate-gradient(#53346D, #000000, #ffffff);
+}
+
+$i: 0;
+@each $name, $colors in $gradients {
+  .gradient#{$i} {
+    @include generate-gradient(nth($colors, 1), nth($colors, 2), nth($colors, 3));
+  }
+
+  $i: $i + 1;
+}

@@ -1,0 +1,66 @@
+@import "variables";
+@import "mixins";
+
+.quote-card {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
+  border-radius: 5px;
+  color: #353535;
+  margin: 15px;
+  max-width: 350px;
+  transition: height 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    //height: 310px;
+  }
+
+  &:focus {
+    border-color: #2E76B4;
+    text-decoration: underline;
+  }
+
+  &--big {
+    margin: 30px auto 25px auto;
+    max-width: 550px;
+
+    .quote-card__quote {
+      font-size: 28px;
+    }
+
+    .quote-card__author {
+      font-size: 16px;
+    }
+  }
+}
+
+.quote-card__main-content {
+  cursor: pointer;
+}
+
+.quote-card__quote {
+  text-shadow: 1px 1px #565656;
+  font-size: 19px;
+  font-weight: bold;
+  padding: $card-padding;
+}
+
+.quote-card__author {
+  font-size: 13px;
+  font-weight: bold;
+  padding: $card-padding;
+}
+
+.quote-card__topics {
+  border-top: 2px solid rgba(0,0,0,0.1);
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  font-size: 12px;
+  padding: $card-padding;
+}
+
+.quote-card__topic {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 12px;
+  padding: $card-padding;
+}

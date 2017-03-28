@@ -1,0 +1,56 @@
+@import "variables";
+
+@mixin respond-to-min-width($screen-width) {
+  @media only all and (min-width: $screen-width) {
+    @content;
+  }
+}
+
+@mixin max-width-media-query($screen-width) {
+  @media only all and (max-width: $screen-width) {
+    @content;
+  }
+}
+
+@mixin respond-to-mobile() {
+  @media only all and (max-width: $col-sm-min) {
+    @content;
+  }
+}
+
+@mixin respond-to-tablet() {
+  @media only all and (min-width: $col-sm-min) and (max-width: $col-md-min - 1) {
+    @content;
+  }
+}
+
+@mixin respond-to-desktop() {
+  @media only all and (min-width: $col-md-min) {
+    @content;
+  }
+}
+
+@mixin respond-to-large-desktop() {
+  @media only all and (min-width: $col-lg-min) {
+    @content;
+  }
+}
+
+@mixin respond-to-devices-except-desktop() {
+  @media only all and (max-width: $col-md-min) {
+    @content;
+  }
+}
+
+@mixin respond-to-devices-except-mobile() {
+  @media only all and (min-width: $col-sm-min) {
+    @content;
+  }
+}
+
+@mixin generate-gradient($gradient-color1, $gradient-color2, $font-color) {
+  background: $gradient-color1;
+  background: -webkit-linear-gradient(to right, $gradient-color1 , $gradient-color2);
+  background: linear-gradient(to right, $gradient-color1 , $gradient-color2);
+  color: $font-color;
+}

@@ -1,0 +1,8 @@
+<div class="container quotes-container">
+  <div masonry masonry-options="{ transitionDuration: '0.4s' }">
+    <div ng-repeat="quote in homeCtrl.quotes track by quote.id" class="masonry-brick">
+      <quote-card quote-card-quote="quote"></quote-card>
+    </div>
+  </div>
+
+</div>

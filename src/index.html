@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Quoty - Quotes Discovery</title>
+  <meta http-equiv="cache-control" content="no-cache"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+  <!-- masonry -->
+  <script src="/bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="/bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="/bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="/bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="/bower_components/get-size/get-size.js"></script>
+  <script src="/bower_components/outlayer/item.js"></script>
+  <script src="/bower_components/outlayer/outlayer.js"></script>
+  <script src="/bower_components/masonry/masonry.js"></script>
+  <script src="/bower_components/imagesloaded/imagesloaded.js"></script>
+
+  <!-- include other JS deps -->
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-masonry/angular-masonry.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+</head>
+
+<body ng-app="quoty" ng-controller="AppController">
+  <div class="container">
+    <div ui-view="root"></div>
+  </div>
+</body>
+</html>

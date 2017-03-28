@@ -1,0 +1,11 @@
+<div class="quote-card" ng-class="{'quote-card--big': qcCtrl.isBigCard}">
+  <div class="quote-card__main-content" ng-class="qcCtrl.gradientClass">
+    <div ng-if="::!qcCtrl.isBigCard" class="quote-card__quote" ng-bind="::qcCtrl.quote"
+         ui-sref="root.quoteDetails({id: qcCtrl.id, gradientClass: qcCtrl.gradientClass})">
+    </div>
+    <div ng-if="::qcCtrl.isBigCard" class="quote-card__quote" ng-bind="::qcCtrl.quote"></div>
+
+    <div class="quote-card__author" ng-bind="::qcCtrl.authorName"></div>
+  </div>
+  <div class="quote-card__topics" ng-bind="::qcCtrl.topics"></div>
+</div>

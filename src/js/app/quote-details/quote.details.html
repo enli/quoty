@@ -1,0 +1,38 @@
+<div class="quote-details">
+  <quote-card quote-card-quote="::qdCtrl.quote"
+              quote-card-gradient-class="::qdCtrl.gradientClass"
+              quote-card-is-big-card="true">
+  </quote-card>
+
+  <div class="row">
+    <div class="col-sm-12 quote-details__section">
+      <h3>Author introduction</h3>
+      <div ng-bind="::qdCtrl.author.intro"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-5 quote-details__section">
+      <h3>Biography</h3>
+      <div>
+        <!--Intro: <span ng-bind="::qdCtrl.author.intro"></span>-->
+        Author Profession: <span ng-bind="::qdCtrl.author.profession"></span>
+      </div>
+      <div>Born: <span ng-bind="::qdCtrl.author.born"></span></div>
+      <div ng-if="::qdCtrl.author.died">Died: <span ng-bind="::qdCtrl.author.died"></span></div>
+    </div>
+
+    <div class="col-sm-3 col-md-3 quote-details__section">
+      <h3>Stats</h3>
+      <div>Shares: <span ng-bind="::qdCtrl.quote.shareCount"></span></div>
+      <div>Likes: <span ng-bind="::qdCtrl.quote.likeCount"></span></div>
+      <div>Views: <span ng-bind="::qdCtrl.quote.viewCount"></span></div>
+    </div>
+
+    <div class="col-sm-3 col-md-2 quote-details__section">
+      <h3>Topics</h3>
+      <div ng-bind="::qdCtrl.topics"></div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+// colors
+$primary-color: #2E76B4;
+
+// media queries
+$col-sm-min: 768px;
+$col-md-min: 992px;
+$col-lg-min: 1200px;
+
+// card
+$card-padding: 7px 15px;
+
+$gradients: (
+  passion: (#e35d5b, #e53935, #ffffff),
+  //moon: (#53346D, #000000, #ffffff),
+  parklife: (#ADD100, #7B920A, #ffffff),
+  nighthawk: (#2980b9, #3f556b, #ffffff),
+  orange: (#FFB75E, #ED8F03, #ffffff),
+  littleLeaf: (#76b852, #8DC26F, #ffffff),
+  deepPurple: (#673AB7, #5530b4, #ffffff),
+  virginAmerica: (#7b4397, #57306B, #ffffff),
+  clearSky: (#005C97, #3f40ae, #ffffff),
+  flickr: (#ff0084, #950055, #ffffff),
+  purplin: (#a044ff, #6a3093, #ffffff),
+  sage: (#CCCCB2, #757519, #ffffff),
+  tortoiseFlow: (#136a8a, #267871, #ffffff),
+  endlessRiver: (#43cea2, #185a9d, #ffffff),
+  serveQuick: (#485563, #323f4a, #ffffff)
+)

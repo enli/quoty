@@ -1,0 +1,22 @@
+@import "variables";
+@import "mixins";
+
+.quotes-container {
+  .quote-card {
+    @include respond-to-mobile {
+      max-width: 100% !important;
+    }
+
+    @include respond-to-tablet {
+      max-width: 315px;
+    }
+
+    @include respond-to-desktop {
+      max-width: 425px;
+    }
+
+    @include respond-to-large-desktop {
+      max-width: 340px;
+    }
+  }
+}

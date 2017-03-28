@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+.quote-details {
+  .quote-card__main-content {
+    cursor: initial;
+  }
+}
+
+.quote-details__section {
+  @include respond-to-mobile {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  @include respond-to-devices-except-mobile {
+    margin-bottom: 20px;
+  }
+}
