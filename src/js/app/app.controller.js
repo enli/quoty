@@ -4,7 +4,7 @@
   angular.module('quoty')
     .controller('AppController', AppController);
 
-  function AppController(quotesService) {
+  function AppController() {
     // some init code
   }
 })();
